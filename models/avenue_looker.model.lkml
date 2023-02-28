@@ -1,4 +1,4 @@
-connection: "bq_suribase"
+connection: "avenue_looker"
 
 # include all the views
 include: "/views/**/*.view"
