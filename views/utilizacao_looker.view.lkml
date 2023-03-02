@@ -326,7 +326,7 @@ view: utilizacao_looker {
   }
   measure: impacto_na_carteira {
     type: percent_of_total
-    sql: ${TABLE}.total_usuarios_ativos ;;
+    sql: ${total_usuarios}/${total_usuarios_alto_custo};;
   }
   measure: total_sinistro {
     type: sum
