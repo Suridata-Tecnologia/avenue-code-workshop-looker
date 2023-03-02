@@ -155,6 +155,8 @@ view: utilizacao_looker {
   dimension: age_tier {
     type: tier
     tiers: [0,19, 24, 29, 34, 39, 49, 54,59]
+    style: integer
+    sql: ${TABLE}.idade_usuario ;;
   }
 
   dimension: item_cadastro {
@@ -332,10 +334,12 @@ view: utilizacao_looker {
   measure: total_sinistro {
     type: sum
     sql:${TABLE}.sinistro;;
+    value_format: "#,##0.00"
   }
   measure: media_sinistro {
     type:average
     sql: ${TABLE}.sinistro ;;
+    value_format: "#,##0.00"
   }
   measure: risco_oncologico {
     type: count_distinct
