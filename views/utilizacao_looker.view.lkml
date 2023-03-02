@@ -326,8 +326,9 @@ view: utilizacao_looker {
   }
   measure: impacto_na_carteira {
     type: percent_of_total
-    sql: ${total_usuarios}/${total_usuarios_alto_custo};;
+    sql: ${TABLE}.usuario ;;
   }
+
   measure: total_sinistro {
     type: sum
     sql:${TABLE}.sinistro;;
@@ -345,5 +346,6 @@ view: utilizacao_looker {
   type: percent_of_total
   sql: ${TABLE}.risco_oncologico ;;
   }
+
 
  }
