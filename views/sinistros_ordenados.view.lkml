@@ -47,8 +47,8 @@ view: sinistros_ordenados {
     case: {
       when: {
         sql: ${TABLE}.sinistro_order < 31 ;;
-        label: "top_30"
-      }
+        label: "top_30"}
+
       else: "outros"
     }
   }
