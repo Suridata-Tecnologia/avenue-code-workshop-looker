@@ -10,4 +10,8 @@ datagroup: avenue_looker_default_datagroup {
 
 persist_with: avenue_looker_default_datagroup
 
-explore: utilizacao_looker {}
+explore: utilizacao_looker {join: sinistros_ordenados {
+    type: left_outer
+    sql_on: ${utilizacao_looker.sinistro} = ${sinistros_ordenados.sinistro} ;;
+    relationship:one_to_one
+  }}
