@@ -25,7 +25,33 @@ view: sinistros_ordenados {
     dimension: sinistro_order {
       type: number
     }
-
+  dimension: top10 {
+    case: {
+      when: {
+        sql: ${TABLE}.sinistro_order < 11 ;;
+        label: "top_10"
+      }
+      else: "outros"
+    }
+  }
+  dimension: top20 {
+    case: {
+      when: {
+        sql: ${TABLE}.sinistro_order < 21 ;;
+        label: "top_20"
+      }
+      else: "outros"
+    }
+  }
+  dimension: top30 {
+    case: {
+      when: {
+        sql: ${TABLE}.sinistro_order < 31 ;;
+        label: "top_30"
+      }
+      else: "outros"
+    }
+  }
 
 
   }
