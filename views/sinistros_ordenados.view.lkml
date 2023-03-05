@@ -52,6 +52,9 @@ view: sinistros_ordenados {
       else: "outros"
     }
   }
-
+  measure: soma_total_sinistro  {
+    type: sum
+    sql: ${TABLE}.total_sinistro;;
+  }
 
   }
