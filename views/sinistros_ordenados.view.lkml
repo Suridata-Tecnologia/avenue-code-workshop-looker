@@ -67,7 +67,7 @@ view: sinistros_ordenados {
   measure: percent_sinistro {
     type: number
     sql: ${sum_top_20}/${soma_total_sinistro};;
-    value_format: "0.00%"
+    value_format: "0.0%"
   }
 
   }
