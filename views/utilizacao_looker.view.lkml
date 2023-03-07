@@ -152,6 +152,13 @@ view: utilizacao_looker {
     sql: ${TABLE}.Idade_Usuario ;;
   }
 
+  dimension: age_tier {
+    type: tier
+    tiers: [0,19, 24, 29, 34, 39, 49, 54,59]
+    style: integer
+    sql: ${TABLE}.idade_usuario ;;
+  }
+
   dimension: item_cadastro {
     type: string
     sql: ${TABLE}.ItemCadastro ;;
@@ -302,8 +309,47 @@ view: utilizacao_looker {
     sql: ${TABLE}.Vigencia ;;
   }
 
-  measure: count {
-    type: count
-    drill_fields: []
+
+  measure: total_usuarios {
+    type: count_distinct
+    sql: ${TABLE}.usuario;;
   }
-}
+
+  measure: total_usuarios_alto_custo {
+    type: count_distinct
+    sql: ${TABLE}.usuario ;;
+    filters: [tipo_risco: "Alto Custo"]
+  }
+
+  measure: total_usuarios_ativos {
+    type: count_distinct
+    sql: ${TABLE}.usuario ;;
+    filters: [tipo_risco: "Alto Custo",status_usuario: "Ativo"]
+  }
+  measure: impacto_na_carteira {
+    type: percent_of_total
+    sql: ${TABLE}.usuario ;;
+  }
+
+  measure: total_sinistro {
+    type: sum
+    sql:${TABLE}.sinistro;;
+    value_format: "#,##0.00"
+  }
+  measure: media_sinistro {
+    type:average
+    sql: ${TABLE}.sinistro ;;
+    value_format: "#,##0.00"
+  }
+  measure: risco_oncologico {
+    type: count_distinct
+    sql: ${TABLE}.usuario ;;
+    filters: [desc_risco: "Quimioterapia,Radioterapia"]
+  }
+ measure: porcentagem_oncologico {
+  type: percent_of_total
+  sql: ${TABLE}.risco_oncologico ;;
+  }
+
+
+ }
