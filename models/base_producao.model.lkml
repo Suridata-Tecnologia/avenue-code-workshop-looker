@@ -462,6 +462,8 @@ explore: time {
 
 explore: tmp_tuss {}
 
+explore: imagem_looker {}
+
 explore: tuss_oficial {}
 
 explore: tuss_suridata {}
