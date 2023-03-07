@@ -52,9 +52,22 @@ view: sinistros_ordenados {
       else: "outros"
     }
   }
+
+  measure: sum_top_20 {
+      type: sum
+      sql: ${TABLE}.total_sinistro ;;
+      filters: [top20 : "top_20"]
+    }
+
   measure: soma_total_sinistro  {
     type: sum
     sql: ${TABLE}.total_sinistro;;
+  }
+
+  measure: percent_sinistro {
+    type: number
+    sql: ${sum_top_20}/${soma_total_sinistro};;
+    value_format: "0.00%"
   }
 
   }
