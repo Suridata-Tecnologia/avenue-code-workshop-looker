@@ -10,4 +10,4 @@ datagroup: bencorp_default_datagroup {
 
 persist_with: bencorp_default_datagroup
 
-explore: vw_utilizacao_bencorp_looker {}
+explore:  _utilizacao_bencorp_looker {}
